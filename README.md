@@ -3,9 +3,8 @@ This is a simplified assembler and virtual machine used in a classrooms setting 
 
 ## Registers
 
-The program has 5 registers available. Each are readable and writable.
+The program has 4 registers available. Each are readable and writable.
 
-- reg0
 - reg1
 - reg2
 - reg3
@@ -22,7 +21,7 @@ Values are numbers between 0 and 9 (included).
 
 `[Instruction number] write [register] [value]`
 
-That instruction will write the `value` to the specified `register`.
+That instruction will write the value of the specified `register` at cursor position.
 
 ### Jump
 
@@ -40,45 +39,18 @@ That instruction will jump to the specified `Instruction to jump to` if the spec
 
 `[Instruction number] add [register] [value]`
 
-That instruction will add `value` to the specified `register`. If the sum is more than 127, 127 will be written.
+That instruction will add `value` to the specified `register`. If the sum is more than 9, 9 will be written.
 
 ### Sub
 
 `[Instruction number] add [register] [value]`
 
-That instruction will add `value` to the specified `register`. If the sum is more than 127, 127 will be written.
+That instruction will add `value` to the specified `register`. If the diffrence is less than 0, 0 will be written.
 
 
 ### Move
 
 `[Instruction number] move [value]`
 
-That instruction will move the program cursor `value` blocks in the memory.
+That instruction will move the program cursor `value` blocks in the memory. 
 Value must be between -5 and 5.
-
-
-## Command costs
-
-### Write
-
-1 cycle.
-
-### Jump
-
-1 cycle.
-
-### ZJump
-
-2 cycles.
-
-### Add
-
-2 cycles.
-
-### Sub
-
-2 cycles.
-
-### Move
-
-From 1 to 5 cycles depending on the move length.
